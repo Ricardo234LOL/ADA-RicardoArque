@@ -1,0 +1,6 @@
+HeapSort(A)
+construirMaxHeap(A)
+para i desde n hasta 2 hacer
+	intercambiar A[1] y A[i]
+	n <- n-1
+	maxHeapify(A, 1)

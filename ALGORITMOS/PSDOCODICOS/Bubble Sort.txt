@@ -1,0 +1,5 @@
+BubbleSort(A)
+para i desde 1 hasta n-1 hacer
+	para j desde 1 hasta n-i hacer
+		si A[j] > A[j+1] entonces
+			intercambiar A[j] y A[j+1]

@@ -1,0 +1,15 @@
+QuickSort(A, p, r)
+si p < r entonces
+	q <- particionar(A, p, r)
+	QuickSort(A, p, q-1)
+	QuickSort(A, q+1, r)
+
+Particionar(A, p, r)
+pivote <- A[r]
+i <- p - 1
+para j desde p hasta r-1 hacer
+	si A[j] <= pivote entonces
+		i <- i + 1
+		intercambiar A[i] y A[j]
+intercambiar A[i+1] y A[r]
+retornar i+1

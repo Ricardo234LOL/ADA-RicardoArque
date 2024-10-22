@@ -1,0 +1,9 @@
+CountingSort(A, k)
+C[0..k] <- array de ceros
+para j desde 1 hasta n hacer
+	C[A[j]] <- C[A[j]] + 1
+para i desde 1 hasta k hacer
+	C[i] <- C[i] + C[i-1]
+para j desde n hasta 1 hacer
+	B[C[A[j]]] <- A[j]
+	C[A[j]] <- C[A[j]] - 1

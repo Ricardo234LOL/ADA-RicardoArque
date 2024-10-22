@@ -1,0 +1,157 @@
+\newpage
+\section{Marco teórico}
+Los algoritmos de ordenamiento son esenciales en la informática, ya que muchos problemas dependen de la organización eficiente de datos para mejorar su rendimiento y optimización. Estos algoritmos reordenan una secuencia de elementos \( A = \{a_1, a_2, \dots, a_n\} \) para producir una secuencia \( A' = \{a'_1, a'_2, \dots, a'_n\} \), donde \( a'_i \leq a'_j \) para \( 1 \leq i < j \leq n \). A lo largo de los años, se han desarrollado diversos tipos de algoritmos con diferentes propiedades y aplicaciones según el contexto en el que se usen. Los algoritmos analizados en este marco teórico son: \textit{Bubble Sort}, \textit{Counting Sort}, \textit{Heap Sort}, \textit{Insertion Sort}, \textit{Merge Sort}, \textit{Quick Sort}, y \textit{Selection Sort}.
+
+\subsection{Algoritmos de Ordenamiento}
+
+\subsubsection{Bubble Sort}
+
+El \textit{Bubble Sort} es un algoritmo básico de comparación que intercambia elementos adyacentes si están en el orden incorrecto, "burbujeando" los elementos mayores hacia el final de la lista en cada iteración. Aunque es sencillo de entender y fácil de implementar, es uno de los algoritmos más ineficientes para grandes volúmenes de datos debido a su alta complejidad temporal.
+
+\paragraph{Pseudocódigo de Bubble Sort}
+
+\begin{verbatim}
+  BubbleSort(A)
+  para i desde 1 hasta n-1 hacer
+    para j desde 1 hasta n-i hacer
+      si A[j] > A[j+1] entonces
+        intercambiar A[j] y A[j+1]
+\end{verbatim}
+
+\paragraph{Complejidad}
+
+La complejidad temporal de \textit{Bubble Sort} es \( O(n^2) \) tanto en el peor como en el promedio de los casos, ya que el algoritmo requiere realizar múltiples comparaciones e intercambios. En el mejor de los casos, cuando la lista está ordenada, su complejidad es \( O(n) \).
+
+\subsubsection{Counting Sort}
+
+El \textit{Counting Sort} es un algoritmo no comparativo que es particularmente eficiente cuando se ordenan números enteros en un rango acotado. En lugar de comparar los elementos directamente, el algoritmo cuenta cuántas veces aparece cada valor en la lista y utiliza esa información para colocarlos en la posición correcta.
+
+\paragraph{Pseudocódigo de Counting Sort}
+
+\begin{verbatim}
+  CountingSort(A, k)
+  C[0..k] <- array de ceros
+  para j desde 1 hasta n hacer
+    C[A[j]] <- C[A[j]] + 1
+  para i desde 1 hasta k hacer
+    C[i] <- C[i] + C[i-1]
+  para j desde n hasta 1 hacer
+    B[C[A[j]]] <- A[j]
+    C[A[j]] <- C[A[j]] - 1
+\end{verbatim}
+
+\paragraph{Complejidad}
+
+El \textit{Counting Sort} tiene una complejidad temporal de \( O(n + k) \), donde \( n \) es el número de elementos a ordenar y \( k \) es el valor máximo en el rango de los datos.
+
+\subsubsection{Heap Sort}
+
+El \textit{Heap Sort} es un algoritmo eficiente basado en la estructura de datos llamada heap (montículo), que puede ser un \textit{max-heap} o un \textit{min-heap}. El \textit{Heap Sort} es un algoritmo in situ que utiliza un heap máximo para ordenar los elementos.
+
+\paragraph{Pseudocódigo de Heap Sort}
+
+\begin{verbatim}
+  HeapSort(A)
+  construirMaxHeap(A)
+  para i desde n hasta 2 hacer
+    intercambiar A[1] y A[i]
+    n <- n-1
+    maxHeapify(A, 1)
+\end{verbatim}
+
+\paragraph{Complejidad}
+
+La complejidad temporal de \textit{Heap Sort} es \( O(n \log n) \) en todos los casos.
+
+\subsubsection{Insertion Sort}
+
+El \textit{Insertion Sort} es un algoritmo simple que resulta muy eficiente para listas pequeñas o listas que ya están casi ordenadas. Inserta cada elemento en su posición correcta dentro de la parte ordenada de la lista.
+
+\paragraph{Pseudocódigo de Insertion Sort}
+
+\begin{verbatim}
+  InsertionSort(A)
+  para i desde 2 hasta n hacer
+    clave <- A[i]
+    j <- i - 1
+    mientras j > 0 y A[j] > clave hacer
+      A[j+1] <- A[j]
+      j <- j - 1
+    A[j+1] <- clave
+\end{verbatim}
+
+\paragraph{Complejidad}
+
+El \textit{Insertion Sort} tiene una complejidad temporal de \( O(n^2) \) en el peor de los casos, pero en el mejor de los casos (cuando la lista ya está ordenada), su complejidad es \( O(n) \).
+
+\subsubsection{Merge Sort}
+
+El \textit{Merge Sort} es un algoritmo eficiente que utiliza la técnica de \textit{divide y vencerás}. Divide la lista en dos mitades, las ordena recursivamente y luego combina las dos mitades ordenadas.
+
+\paragraph{Pseudocódigo de Merge Sort}
+
+\begin{verbatim}
+  MergeSort(A, p, r)
+  si p < r entonces
+    q <- (p + r) / 2
+    MergeSort(A, p, q)
+    MergeSort(A, q+1, r)
+    Merge(A, p, q, r)
+  
+  Merge(A, p, q, r)
+  L <- A[p..q]
+  R <- A[q+1..r]
+  combinar L y R en A[p..r]
+\end{verbatim}
+
+\paragraph{Complejidad}
+
+La complejidad temporal del \textit{Merge Sort} es \( O(n \log n) \) en todos los casos.
+
+\subsubsection{Quick Sort}
+
+El \textit{Quick Sort} es uno de los algoritmos más rápidos en la práctica y también sigue la estrategia de \textit{divide y vencerás}. Selecciona un pivote y reordena los elementos en torno a este pivote, de forma que los menores que el pivote queden a su izquierda y los mayores a su derecha.
+
+\paragraph{Pseudocódigo de Quick Sort}
+
+\begin{verbatim}
+  QuickSort(A, p, r)
+  si p < r entonces
+    q <- particionar(A, p, r)
+    QuickSort(A, p, q-1)
+    QuickSort(A, q+1, r)
+  
+  Particionar(A, p, r)
+  pivote <- A[r]
+  i <- p - 1
+  para j desde p hasta r-1 hacer
+    si A[j] <= pivote entonces
+      i <- i + 1
+      intercambiar A[i] y A[j]
+  intercambiar A[i+1] y A[r]
+  retornar i+1
+\end{verbatim}
+
+\paragraph{Complejidad}
+
+La complejidad promedio de \textit{Quick Sort} es \( O(n \log n) \), pero en el peor de los casos puede ser \( O(n^2) \).
+
+\subsubsection{Selection Sort}
+
+El \textit{Selection Sort} es un algoritmo que selecciona repetidamente el elemento más pequeño (o más grande) de la lista no ordenada y lo coloca en su posición correcta en la parte ordenada de la lista.
+
+\paragraph{Pseudocódigo de Selection Sort}
+
+\begin{verbatim}
+  SelectionSort(A)
+  para i desde 1 hasta n-1 hacer
+    minIndex <- i
+    para j desde i+1 hasta n hacer
+      si A[j] < A[minIndex] entonces
+        minIndex <- j
+    intercambiar A[i] y A[minIndex]
+\end{verbatim}
+
+\paragraph{Complejidad}
+
+La complejidad temporal del \textit{Selection Sort} es \( O(n^2) \), tanto en el mejor como en el peor de los casos.

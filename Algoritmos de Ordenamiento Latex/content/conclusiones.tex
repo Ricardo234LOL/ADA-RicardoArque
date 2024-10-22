@@ -1,0 +1,45 @@
+\newpage
+\section{Conclusiones}
+
+En este análisis, hemos comparado diferentes algoritmos de ordenamiento implementados en tres lenguajes de programación: \textbf{Python}, \textbf{Java} y \textbf{C++}, observando cómo varían los tiempos de ejecución según el tamaño del archivo y el tipo de algoritmo.
+
+\subsection{Algoritmos Simples: Bubble Sort, Selection Sort, Insertion Sort}
+Los algoritmos de ordenamiento básicos como \textbf{Bubble Sort}, \textbf{Selection Sort} e \textbf{Insertion Sort} tienen un desempeño significativamente inferior a medida que aumenta el tamaño de los datos. Esto se debe a su complejidad de tiempo de \(O(n^2)\), lo que provoca que sus tiempos de ejecución crezcan exponencialmente con el tamaño de los archivos.
+
+\begin{itemize}
+    \item \textbf{C++} suele ser el lenguaje más eficiente para estos algoritmos debido a su naturaleza compilada y cercana al hardware, mostrando tiempos más bajos en comparación con Python y Java. Esto es especialmente evidente para tamaños de archivo grandes.
+    
+    \item \textbf{Python}, al ser un lenguaje interpretado, muestra los tiempos de ejecución más altos, reflejando su desventaja en cuanto a eficiencia para estos algoritmos.
+    
+    \item \textbf{Java}, aunque más eficiente que Python, presenta tiempos de ejecución intermedios. Su compilación en bytecode ofrece ventajas, pero no alcanza la eficiencia de C++.
+\end{itemize}
+
+\subsection{Algoritmos más Eficientes: Merge Sort, Quick Sort, Heap Sort}
+Los algoritmos más avanzados como \textbf{Merge Sort}, \textbf{Quick Sort} y \textbf{Heap Sort}, con complejidad \(O(n \log n)\), son mucho más eficientes que los algoritmos simples.
+
+\begin{itemize}
+    \item \textbf{Quick Sort} muestra un rendimiento consistente en los tres lenguajes, pero en archivos grandes, \textbf{C++} se destaca con tiempos más bajos, seguido de Java y Python.
+    
+    \item \textbf{Merge Sort} es eficiente en grandes volúmenes de datos, mostrando tiempos competitivos en los tres lenguajes, aunque C++ sigue siendo el más rápido.
+    
+    \item \textbf{Heap Sort} es menos común pero eficiente, y \textbf{C++} lidera nuevamente en cuanto a tiempos de ejecución.
+\end{itemize}
+
+\subsection{Counting Sort: Algoritmo Especializado}
+\textbf{Counting Sort}, con complejidad \(O(n+k)\), es extremadamente rápido en los tres lenguajes. En archivos pequeños y medianos, la diferencia entre lenguajes es mínima. Sin embargo, en archivos grandes, \textbf{C++} muestra su eficiencia, seguido de Java y Python.
+
+\subsection{Observaciones Generales sobre los Lenguajes}
+\begin{itemize}
+    \item \textbf{C++}: Es el lenguaje más eficiente en casi todos los casos, gracias a su naturaleza compilada y su optimización de bajo nivel.
+    
+    \item \textbf{Java}: Presenta tiempos intermedios, beneficiándose de su compilación en bytecode, pero aún está por debajo de C++ en términos de rendimiento.
+    
+    \item \textbf{Python}: Es el lenguaje más accesible pero menos eficiente, mostrando tiempos de ejecución significativamente más altos, especialmente en algoritmos de complejidad \(O(n^2)\).
+\end{itemize}
+
+\subsection{Conclusión Final}
+Los tiempos de ejecución dependen tanto del \textbf{algoritmo} como del \textbf{lenguaje de programación} utilizado. Los algoritmos simples como \textbf{Bubble Sort} e \textbf{Insertion Sort} son ineficientes y muestran grandes diferencias entre lenguajes. Los algoritmos avanzados como \textbf{Quick Sort} y \textbf{Merge Sort} son mucho más eficientes, siendo \textbf{C++} el lenguaje más rápido, seguido de \textbf{Java} y finalmente \textbf{Python}.
+
+Para aplicaciones que requieren alta eficiencia, especialmente con grandes volúmenes de datos, se recomienda usar algoritmos con complejidad \(O(n \log n)\) y considerar \textbf{C++} o \textbf{Java} si el rendimiento es una prioridad.
+
+\end{enumerate}

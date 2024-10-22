@@ -1,0 +1,11 @@
+MergeSort(A, p, r)
+si p < r entonces
+	q <- (p + r) / 2
+	MergeSort(A, p, q)
+	MergeSort(A, q+1, r)
+	Merge(A, p, q, r)
+
+Merge(A, p, q, r)
+L <- A[p..q]
+R <- A[q+1..r]
+combinar L y R en A[p..r]

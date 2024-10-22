@@ -1,0 +1,8 @@
+InsertionSort(A)
+para i desde 2 hasta n hacer
+	clave <- A[i]
+	j <- i - 1
+	mientras j > 0 y A[j] > clave hacer
+		A[j+1] <- A[j]
+		j <- j - 1
+	A[j+1] <- clave

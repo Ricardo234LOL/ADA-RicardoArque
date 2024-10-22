@@ -1,0 +1,7 @@
+SelectionSort(A)
+para i desde 1 hasta n-1 hacer
+	minIndex <- i
+	para j desde i+1 hasta n hacer
+		si A[j] < A[minIndex] entonces
+			minIndex <- j
+	intercambiar A[i] y A[minIndex]
